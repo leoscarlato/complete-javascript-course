@@ -132,7 +132,6 @@ function calcTip (billValue) {
 
 console.log(calcTip(125))
 
-*/
 
 const person = {
     firstName: `Leonardo`,
@@ -148,3 +147,33 @@ console.log(person[`age`])
 console.log(person.friends)
 
 console.log(`${person[`firstName`]} has ${person[`friends`].length} friends, and his best friend is called ${person[`friends`][0]}`)
+
+
+const person = {
+    firstName: `Leonardo`,
+    lastName: `Scarlato`,
+    job: `student`,
+    friends: [`Michael`, `Steven`, `Peter`],
+    birthYear: 2004,
+    hasDriversLicense: false,
+
+    calcAge: function () {
+        this.age = 2023 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary: function () {
+        return `${this.firstName} is a ${this.calcAge()}-year old ${this.job} and he has ${this.hasDriversLicense ? `a` : `no`} driver's license.`
+    }
+};
+
+console.log(person.calcAge())
+console.log(person.age);
+
+console.log(person.getSummary());
+
+*/
+
+for (let rep = 1; rep <= 10; rep++){
+    console.log(rep)
+}
