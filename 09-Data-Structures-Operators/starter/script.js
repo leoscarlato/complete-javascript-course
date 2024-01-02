@@ -29,31 +29,64 @@ const restaurant = {
 
   order : function(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery : function({starterIndex=1, mainIndex=1, time='20:00', address}){
+    console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
   }
 };
 
-// Destructuring Arrays
-const arr = [2, 3, 4];
-const a = arr[0];
-const b = arr[1];
-const c = arr[2]; // old way
+restaurant.orderDelivery({
+  address: 'Rua dos Bobos',
+  starterIndex: 2,
+});
 
-const [x, y, z] = arr; // destructuring way
-console.log(x, y, z);
+// // Destructuring Objects
 
-let [main, , secondary] = restaurant.categories; // skip second element
-console.log(main, secondary);
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
 
-// Switching variables
-// const temp = main;
-// main = secondary;
-// secondary = temp;
+const { name: restaurantName, openingHours: hours, categories: tags } = restaurant;
+console.log(restaurantName, hours, tags);
+
+// // Default values -> se o valor não existir, ele assume o valor default ("[]")
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// // Mutating variables
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14};
+({ a, b } = obj);
+console.log(a, b);
+
+// // Nested objects
+const {fri: {open:o, close:c}} = openingHours;
+console.log(o, c);
+
+
+// // Destructuring Arrays
+// const arr = [2, 3, 4];
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2]; // old way
+
+// const [x, y, z] = arr; // destructuring way
+// console.log(x, y, z);
+
+// let [main, , secondary] = restaurant.categories; // skip second element
 // console.log(main, secondary);
 
-// destructuring way
-[main, secondary] = [secondary, main];
-console.log(main, secondary);
+// // Switching variables
+// // const temp = main;
+// // main = secondary;
+// // secondary = temp;
+// // console.log(main, secondary);
 
-// Receive 2 return values from a function
-const [starter, mainCourse] = restaurant.order(2, 0);
-console.log(starter, mainCourse);
+// // destructuring way
+// [main, secondary] = [secondary, main];
+// console.log(main, secondary);
+
+// // Receive 2 return values from a function
+// const [starter, mainCourse] = restaurant.order(2, 0);
+// console.log(starter, mainCourse);
