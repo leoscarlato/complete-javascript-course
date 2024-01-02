@@ -54,35 +54,42 @@ const restaurant = {
   },
 };
 
-console.log(`--------- OR --------`);
-
-// Use ANY data type, return ANY data type, short-circuiting (if the first value is a truthy value, it returns that value)
-console.log(3 || `Leo`);
-console.log(`` || 'Leo');
-console.log(true || 0);
-console.log(undefined || null);
-
-console.log(undefined || 0 || '' || 'Hello' || 23 || null); // retorna Hello -> primeiro valor que é truthful
-
 restaurant.numGuests = 0;
 const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
 console.log(guests1);
 
-const guests2 = restaurant.numGuests || 10;
-console.log(guests2);
+// Nullish: null and undefined (does not include 0 or '' (0 and '' are not falsy values in this case))
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
 
-console.log(`------- AND -------`);
 
-console.log(0 && 'Leo');
-console.log(7 && 'Leo');
 
-console.log('Hello' && 23 && null && 'leo'); // retorna null -> valor falso (short-circuit)
+// console.log(`--------- OR --------`);
 
-if (restaurant.orderPizza) {
-  restaurant.orderPizza(`mushrooms`, `spinach`);
-}
+// // Use ANY data type, return ANY data type, short-circuiting (if the first value is a truthy value, it returns that value)
+// console.log(3 || `Leo`);
+// console.log(`` || 'Leo');
+// console.log(true || 0);
+// console.log(undefined || null);
 
-restaurant.orderPizza && restaurant.orderPizza(`mushrooms`, `spinach`);
+// console.log(undefined || 0 || '' || 'Hello' || 23 || null); // retorna Hello -> primeiro valor que é truthful
+
+
+// const guests2 = restaurant.numGuests || 10;
+// console.log(guests2);
+
+// console.log(`------- AND -------`);
+
+// console.log(0 && 'Leo');
+// console.log(7 && 'Leo');
+
+// console.log('Hello' && 23 && null && 'leo'); // retorna null -> valor falso (short-circuit)
+
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza(`mushrooms`, `spinach`);
+// }
+
+// restaurant.orderPizza && restaurant.orderPizza(`mushrooms`, `spinach`);
 
 // // SPREAD, because on RIGHT side of =
 // const arr = [1,2, ...[3,4]];
