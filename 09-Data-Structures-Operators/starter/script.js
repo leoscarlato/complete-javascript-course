@@ -33,36 +33,94 @@ const restaurant = {
 
   orderDelivery : function({starterIndex=1, mainIndex=1, time='20:00', address}){
     console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+  },
+
+  orderPasta: function(ing1, ing2, ing3){
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}!`)
   }
 };
 
-restaurant.orderDelivery({
-  address: 'Rua dos Bobos',
-  starterIndex: 2,
-});
 
-// // Destructuring Objects
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
 
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+// spread operator
+const newArr = [1, 2, ...arr];
+console.log(newArr);
 
-const { name: restaurantName, openingHours: hours, categories: tags } = restaurant;
-console.log(restaurantName, hours, tags);
+console.log(...newArr);
 
-// // Default values -> se o valor não existir, ele assume o valor default ("[]")
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
 
-// // Mutating variables
-let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14};
-({ a, b } = obj);
-console.log(a, b);
+// copy array
+const mainMenuCopy = [...restaurant.mainMenu];
 
-// // Nested objects
-const {fri: {open:o, close:c}} = openingHours;
-console.log(o, c);
+// join 2 arrays
+const menu = [
+  ...restaurant.starterMenu,
+  ...restaurant.mainMenu
+];
+
+console.log(menu);
+
+// Iterables: arrays, strings, maps, sets. NOT objects
+const str = 'Leonardo';
+const letters = [...str, '', 's'];
+console.log(letters);
+console.log(...str);
+
+// Real-world example
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1?"),
+//   prompt("Ingredient 2?"),
+//   prompt("Ingredient 3?")
+// ];
+
+// restaurant.orderPasta(...ingredients);
+
+// Objects
+
+const newRestaurant = {foundedIn:1998, ...restaurant, founder:"Giuseppe Camole"};
+console.log(newRestaurant);
+
+const restaurantCopy = {...restaurant};
+restaurantCopy.name = "Ristorante Roma";
+console.log(`Old name: ${restaurant.name}`);
+console.log(`New name: ${restaurantCopy.name}`);
+
+
+
+
+
+// restaurant.orderDelivery({
+//   address: 'Rua dos Bobos',
+//   starterIndex: 2,
+// });
+
+// // // Destructuring Objects
+
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
+
+// const { name: restaurantName, openingHours: hours, categories: tags } = restaurant;
+// console.log(restaurantName, hours, tags);
+
+// // // Default values -> se o valor não existir, ele assume o valor default ("[]")
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
+
+// // // Mutating variables
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14};
+// ({ a, b } = obj);
+// console.log(a, b);
+
+// // // Nested objects
+// const {fri: {open:o, close:c}} = openingHours;
+// console.log(o, c);
 
 
 // // Destructuring Arrays
