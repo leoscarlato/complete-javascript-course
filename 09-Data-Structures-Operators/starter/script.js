@@ -27,59 +27,97 @@ const restaurant = {
     },
   },
 
-  order : function(starterIndex, mainIndex) {
+  order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
-  orderDelivery : function({starterIndex=1, mainIndex=1, time='20:00', address}){
-    console.log(`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`);
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 1,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
   },
 
-  orderPasta: function(ing1, ing2, ing3){
-    console.log(`Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}!`)
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}!`
+    );
   },
 
-  orderPizza: function(mainIngredient, ...otherIngredients){
+  orderPizza: function (mainIngredient, ...otherIngredients) {
     console.log(mainIngredient);
     console.log(otherIngredients);
-  }
+  },
 };
 
-// SPREAD, because on RIGHT side of =
-const arr = [1,2, ...[3,4]];
+console.log(`--------- OR --------`);
 
-// REST, because on LEFT side of =
-const [a, b, ...others] = [1,2,3,4,5];
-console.log(a,b,others);
+// Use ANY data type, return ANY data type, short-circuiting (if the first value is a truthy value, it returns that value)
+console.log(3 || `Leo`);
+console.log(`` || 'Leo');
+console.log(true || 0);
+console.log(undefined || null);
 
-const [pizza, pasta, risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
-console.log(pizza, pasta, risotto, otherFood);
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); // retorna Hello -> primeiro valor que é truthful
 
-// Objects
-const {sat, ...weekdays} = restaurant.openingHours;
-console.log(weekdays);
+restaurant.numGuests = 0;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
 
-// Functions
-const add = function(...numbers){
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
 
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++){
-    sum += numbers[i];
-  }
+console.log(`------- AND -------`);
 
-  console.log(sum);
+console.log(0 && 'Leo');
+console.log(7 && 'Leo');
+
+console.log('Hello' && 23 && null && 'leo'); // retorna null -> valor falso (short-circuit)
+
+if (restaurant.orderPizza) {
+  restaurant.orderPizza(`mushrooms`, `spinach`);
 }
 
-add(2, 3);
-add(5, 3, 7, 2);
-add(8,2,5,3,2,1,4);
+restaurant.orderPizza && restaurant.orderPizza(`mushrooms`, `spinach`);
 
-const x = [23, 5, 7];
-add(...x);
+// // SPREAD, because on RIGHT side of =
+// const arr = [1,2, ...[3,4]];
 
-restaurant.orderPizza(`mushrooms`, `onion`, `olives`, `spinach`);
-restaurant.orderPizza(`mushrooms`);
+// // REST, because on LEFT side of =
+// const [a, b, ...others] = [1,2,3,4,5];
+// console.log(a,b,others);
 
+// const [pizza, pasta, risotto, ...otherFood] = [...restaurant.mainMenu, ...restaurant.starterMenu];
+// console.log(pizza, pasta, risotto, otherFood);
+
+// // Objects
+// const {sat, ...weekdays} = restaurant.openingHours;
+// console.log(weekdays);
+
+// // Functions
+// const add = function(...numbers){
+
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++){
+//     sum += numbers[i];
+//   }
+
+//   console.log(sum);
+// }
+
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8,2,5,3,2,1,4);
+
+// const x = [23, 5, 7];
+// add(...x);
+
+// restaurant.orderPizza(`mushrooms`, `onion`, `olives`, `spinach`);
+// restaurant.orderPizza(`mushrooms`);
 
 // const arr = [7, 8, 9];
 // const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
@@ -130,10 +168,6 @@ restaurant.orderPizza(`mushrooms`);
 // console.log(`Old name: ${restaurant.name}`);
 // console.log(`New name: ${restaurantCopy.name}`);
 
-
-
-
-
 // restaurant.orderDelivery({
 //   address: 'Rua dos Bobos',
 //   starterIndex: 2,
@@ -161,7 +195,6 @@ restaurant.orderPizza(`mushrooms`);
 // // // Nested objects
 // const {fri: {open:o, close:c}} = openingHours;
 // console.log(o, c);
-
 
 // // Destructuring Arrays
 // const arr = [2, 3, 4];
