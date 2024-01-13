@@ -565,26 +565,64 @@ GOOD LUCK 😀
 // const staffUniqueArray = [...staffUnique];
 // console.log(staffUniqueArray);
 
-const rest = new Map();
-rest.set(`name`, `Classico Italiano`);
-rest.set(1, `Firenze, Italy`);
-console.log(rest.set(2, `Lisbon, Portugal`));
+// // Map
 
-rest
-  .set(`categories`, [`Italian`, `Pizzeria`, `Vegetarian`, `Organic`])
-  .set(`open`, 11)
-  .set(`close`, 23)
-  .set(true, `We are open!`)
-  .set(false, `We are closed!`);
+// const rest = new Map();
+// rest.set(`name`, `Classico Italiano`);
+// rest.set(1, `Firenze, Italy`);
+// console.log(rest.set(2, `Lisbon, Portugal`));
 
-console.log(rest.get(`name`));
-console.log(rest.get(true));
-console.log(rest.get(1));
+// rest
+//   .set(`categories`, [`Italian`, `Pizzeria`, `Vegetarian`, `Organic`])
+//   .set(`open`, 11)
+//   .set(`close`, 23)
+//   .set(true, `We are open!`)
+//   .set(false, `We are closed!`);
 
-const time = 21;
-console.log(rest.get(time > rest.get(`open`) && time < rest.get(`close`)));
+// console.log(rest.get(`name`));
+// console.log(rest.get(true));
+// console.log(rest.get(1));
 
-console.log(rest.has(`categories`));
-rest.delete(2);
-console.log(rest);
-console.log(rest.size);
+// const time = 21;
+// console.log(rest.get(time > rest.get(`open`) && time < rest.get(`close`)));
+
+// console.log(rest.has(`categories`));
+// rest.delete(2);
+// console.log(rest);
+// console.log(rest.size);
+
+const question = new Map([
+  [`question`, `What is the best programming language?`],
+  [1, `C`],
+  [2, `Java`],
+  [3, `JavaScript`],
+  [`correct`, 3],
+  [true, `correct`],
+  [false, `try again`],
+]);
+console.log(question);
+
+// Convert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
+
+// Quiz
+console.log(question.get(`question`));
+for (const [key, value] of question) {
+  if (typeof (key == `number`)) console.log(`Answer ${key}: ${value}`);
+}
+// const answer = Number(prompt(`Your answer`));
+// console.log(answer);
+
+// if (answer === question.get(`correct`)) {
+//   console.log(question.get(true));
+// } else {
+//   console.log(question.get(false));
+// }
+
+// Convert map to array
+console.log([...question]);
+console.log(question.entries());
+console.log(question.keys());
+console.log(question.values());
