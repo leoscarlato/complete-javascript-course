@@ -540,27 +540,51 @@ GOOD LUCK 😀
 // console.log(scorers);
 
 // // Sets
-const ordersSet = new Set([
-  'Pasta',
-  'Pizza',
-  'Pizza',
-  'Risotto',
-  'Pasta',
-  'Pizza',
-]);
+// const ordersSet = new Set([
+//   'Pasta',
+//   'Pizza',
+//   'Pizza',
+//   'Risotto',
+//   'Pasta',
+//   'Pizza',
+// ]);
 
-console.log(ordersSet);
-console.log(new Set('Leonardo'));
-console.log(ordersSet.size);
-console.log(ordersSet.has('Pizza'));
-console.log(ordersSet.has('Garlic Bread'));
-ordersSet.add('Garlic Bread');
-ordersSet.delete('Risotto');
-console.log(ordersSet);
+// console.log(ordersSet);
+// console.log(new Set('Leonardo'));
+// console.log(ordersSet.size);
+// console.log(ordersSet.has('Pizza'));
+// console.log(ordersSet.has('Garlic Bread'));
+// ordersSet.add('Garlic Bread');
+// ordersSet.delete('Risotto');
+// console.log(ordersSet);
 
-for (const order of ordersSet) console.log(order);
+// for (const order of ordersSet) console.log(order);
 
-const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
-const staffUnique = new Set(staff);
-const staffUniqueArray = [...staffUnique];
-console.log(staffUniqueArray);
+// const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+// const staffUnique = new Set(staff);
+// const staffUniqueArray = [...staffUnique];
+// console.log(staffUniqueArray);
+
+const rest = new Map();
+rest.set(`name`, `Classico Italiano`);
+rest.set(1, `Firenze, Italy`);
+console.log(rest.set(2, `Lisbon, Portugal`));
+
+rest
+  .set(`categories`, [`Italian`, `Pizzeria`, `Vegetarian`, `Organic`])
+  .set(`open`, 11)
+  .set(`close`, 23)
+  .set(true, `We are open!`)
+  .set(false, `We are closed!`);
+
+console.log(rest.get(`name`));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 21;
+console.log(rest.get(time > rest.get(`open`) && time < rest.get(`close`)));
+
+console.log(rest.has(`categories`));
+rest.delete(2);
+console.log(rest);
+console.log(rest.size);
