@@ -75,27 +75,39 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
-let arr = [`a`, `b`, `c`, `d`, `e`];
-console.log(arr.slice(2));
-console.log(arr.slice(2, 4));
-console.log(arr.slice(1, -2));
+// let arr = [`a`, `b`, `c`, `d`, `e`];
+// console.log(arr.slice(2));
+// console.log(arr.slice(2, 4));
+// console.log(arr.slice(1, -2));
 
-// SPLICE
-// console.log(arr.splice(2));
-arr.splice(-1);
-console.log(arr);
+// // SPLICE
+// // console.log(arr.splice(2));
+// arr.splice(-1);
+// console.log(arr);
 
-// REVERSE
-arr = [`a`, `b`, `c`, `d`, `e`];
-let arr2 = [`j`, `i`, `h`, `g`, `f`];
+// // REVERSE
+// arr = [`a`, `b`, `c`, `d`, `e`];
+// let arr2 = [`j`, `i`, `h`, `g`, `f`];
 
-console.log(arr2.reverse());
-console.log(arr2);
+// console.log(arr2.reverse());
+// console.log(arr2);
 
-// CONCAT
-const letters = arr.concat(arr2);
-console.log(letters);
-console.log([...arr, ...arr2]);
+// // CONCAT
+// const letters = arr.concat(arr2);
+// console.log(letters);
+// console.log([...arr, ...arr2]);
 
-// JOIN
-console.log(letters.join(`-`));
+// // JOIN
+// console.log(letters.join(`-`));
+
+const arr = [23, 11, 64];
+
+console.log(arr[0]);
+console.log(arr.at(0));
+
+// Getting the last array element
+console.log(arr[arr.length - 1]);
+console.log(arr.slice(-1)[0]);
+console.log(arr.at(-1));
+
+console.log(`leonardo`.at(0));
